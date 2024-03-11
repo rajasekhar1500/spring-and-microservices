@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: EMPLOYEE-SERVICE
+          ##uri: http://localhost:8082
+          uri: lb://EMPLOYEE-SERVICE
+          predicates:
+            - Path=/api/v1/employees/**
+        - id: DEPARTMENT-SERVICE
+          ##uri: http://localhost:8081
+          uri: lb://DEPARTMENT-SERVICE
+          predicates:
+            - Path=/api/v1/departments/**
+#      discovery:
+#        locator:
+#          enabled: true
+#          lower-case-service-id: true
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        cloud:
+#          gateway:
+#            handler:
+#              RoutePredicateHandlerMapping: DEBUG
+eureka:
+  instance:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+server:
+  port: 9191
+
