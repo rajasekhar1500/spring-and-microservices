@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: EMPLOYEE-SERVICE
+  config:
+    import: optional:configserver:http://localhost:8888
+#  security:
+#    user:
+#      name: raj
+#      password: 12345
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/employee_db
+#    username: root
+#    password: Indhu@#29cvraja
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQLDialect
+#        format_sql: true
+#    hibernate:
+#      ddl-auto: update
+#server:
+#  port: 8082
+#eureka:
+#  instance:
+#    client:
+#      serverUrl:
+#        defaultZone: http://localhost:8761/eureka/
